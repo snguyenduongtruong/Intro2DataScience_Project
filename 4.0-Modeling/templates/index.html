@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Possibility of Crime Related to Theft Prediction</h1>
+  
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Location Description" placeholder="Location Description" required="required" />
+        <input type="text" name="Ward" placeholder="Ward" required="required" />
+		<input type="text" name="Month" placeholder="Month" required="required" />
+		<input type="text" name="Session_day" placeholder="Session_day" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <h2> Chú thích cho Local Description </h2>
+   <h3> Nhập số nguyên tương ứng với địa điểm dưới đây </h3>
+   <p>abandoned building:     1       <br>
+     aircraft:     2       <br>
+ airport parking lot:     3       <br>
+ airport terminal lower level - non-secure area:     4       <br>
+ airport terminal lower level - secure area:     5       <br>
+ airport terminal mezzanine - non-secure area:     6       <br>
+ airport terminal upper level - non-secure area:     7       <br>
+ airport terminal upper level - secure area:     8       <br>
+ airport vending establishment:     9       <br>
+        alley:    10       <br>
+    apartment:    11       <br>
+ appliance store:    12       <br>
+ athletic club:    13       <br>
+ atm (automatic teller machine):    14       <br>
+ auto / boat / rv dealership:    15       <br>
+         bank:    16       <br>
+ bar or tavern:    17       <br>
+ boat / watercraft:    18       <br>
+     car wash:    19       <br>
+ cha apartment:    20       <br>
+ cha hallway / stairwell / elevator:    21       <br>
+ cha parking lot / grounds:    22       <br>
+ church / synagogue / place of worship:    23       <br>
+ cleaning store:    24       <br>
+ college / university - residence hall:    25       <br>
+ commercial / business office:    26       <br>
+ construction site:    27       <br>
+ convenience store:    28       <br>
+      cta bus:    29       <br>
+ cta bus stop:    30       <br>
+ cta parking lot / garage / other property:    31       <br>
+ cta platform:    32       <br>
+  cta station:    33       <br>
+    cta train:    34       <br>
+ currency exchange:    35       <br>
+ day care center:    36       <br>
+ department store:    37       <br>
+ driveway - residential:    38       <br>
+   drug store:    39       <br>
+ factory / manufacturing building:    40       <br>
+ fire station:    41       <br>
+ forest preserve:    42       <br>
+  gas station:    43       <br>
+ government building / property:    44       <br>
+ grocery food store:    45       <br>
+ highway / expressway:    46       <br>
+ hospital building / grounds:    47       <br>
+ hotel / motel:    48       <br>
+ jail / lock-up facility:    49       <br>
+ lakefront / waterfront / riverbank:    50       <br>
+      library:    51       <br>
+ medical / dental office:    52       <br>
+ nursing / retirement home:    53       <br>
+ other (specify):    54       <br>
+ other railroad property / train depot:    55       <br>
+ park property:    56       <br>
+ parking lot / garage (non residential):    57       <br>
+ police facility / vehicle parking lot:    58       <br>
+    pool room:    59       <br>
+    residence:    60       <br>
+ residence - garage:    61       <br>
+ residence - porch / hallway:    62       <br>
+ residence - yard (front / back):    63       <br>
+   restaurant:    64       <br>
+ school - private building:    65       <br>
+ school - private grounds:    66       <br>
+ school - public building:    67       <br>
+ school - public grounds:    68       <br>
+     sidewalk:    69       <br>
+ small retail store:    70       <br>
+ sports arena / stadium:    71       <br>
+       street:    72       <br>
+ tavern / liquor store:    73       <br>
+ vacant lot / land:    74       <br>
+ vehicle - commercial:    75       <br>
+ vehicle - delivery truck:    76       <br>
+ vehicle - other ride share service (lyft, uber, etc.):    77       <br>
+ vehicle non-commercial:    78       <br>
+    warehouse:    79         <br> <br>
+  <h2> Chú thích cho Ward </h2>
+  <br> Khi nhập cho Ward, chú ý nhập các số nguyên từ 1 đến 50, nó sẽ thể hiện (Ward) tướng ứng là 1 đến 50 <br>
+  Ví dụ: muốn dự đoán cho Ward (quận) 1 thì nhập số 1 <br>
+  muốn dự đoán cho Ward (quận) 2 thì nhập số 2 <br>
+  muốn dự đoán cho Ward (quận) 50 thì nhập số 50 ... <br>
+ 
+  <h2> Chú thích cho Month (tháng) </h2>
+  <br> Khi nhập cho Month (tháng), tương tự như khi nhập cho Ward, chú ý nhập các số nguyên từ 1 đến 12, nó sẽ thể hiện (Month) tướng ứng là 1 đến 12 <br>
+  Ví dụ: muốn dự đoán cho Month 1 thì nhập số 1 <br>
+  muốn dự đoán cho Month 2 thì nhập số 2 <br>
+  muốn dự đoán cho Month 12 thì nhập số 12 ... <br>
+ 
+  
+  <h2> Chú thích cho Session_day </h2>
+  <br> Nhập số 1 tương ứng là Day (ban ngày) và 2 là Night (ban đêm) <br> <br> <br>
+ </div>
+
+
+</body>
+</html>
